@@ -2,7 +2,7 @@
 
 Static launch microsite for SaunaMarathon.com, built as a SaunaNews project.
 
-Live site: https://saunamarathon.vercel.app
+Live site: https://www.saunamarathon.com
 
 GitHub: https://github.com/recoupergy/saunamarathon
 
