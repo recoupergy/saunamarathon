@@ -418,6 +418,13 @@ h2 {
   max-width: 15ch;
 }
 
+.section-deck {
+  max-width: 58rem;
+  margin: 1rem 0 0;
+  color: var(--muted);
+  font-size: 1.06rem;
+}
+
 .search-label {
   position: absolute;
   width: 1px;
@@ -486,6 +493,35 @@ h2 {
 
 .event-card[hidden] {
   display: none;
+}
+
+.directory-divider {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: minmax(180px, 0.35fr) minmax(0, 1fr);
+  gap: 1rem;
+  align-items: start;
+  margin: 1.2rem 0 0.15rem;
+  padding: 1rem 0 0;
+  border-top: 1px solid var(--ink);
+}
+
+.directory-divider[hidden] {
+  display: none;
+}
+
+.directory-divider span {
+  color: var(--copper);
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.directory-divider p {
+  margin: 0;
+  max-width: 68rem;
+  color: var(--muted);
 }
 
 .event-card.featured-event {
@@ -848,6 +884,10 @@ h2 {
   }
 
   .event-card dl {
+    grid-template-columns: 1fr;
+  }
+
+  .directory-divider {
     grid-template-columns: 1fr;
   }
 

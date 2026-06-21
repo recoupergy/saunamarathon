@@ -1,6 +1,7 @@
 const header = document.querySelector("[data-header]");
 const filterButtons = Array.from(document.querySelectorAll(".filter-button"));
 const eventCards = Array.from(document.querySelectorAll(".event-card"));
+const directoryDivider = document.querySelector("[data-directory-divider]");
 const resultCount = document.querySelector("[data-result-count]");
 const searchInput = document.querySelector("#event-search");
 
@@ -19,7 +20,9 @@ function normalizedSearch() {
 }
 
 function matchesCard(card, filter, search) {
-  const formatMatch = filter === "all" || card.dataset.format === filter;
+  const formatMatch = filter === "all"
+    || card.dataset.format === filter
+    || card.dataset.group === filter;
   const searchText = `${card.textContent} ${card.dataset.search || ""}`.toLowerCase();
   const searchMatch = !search || searchText.includes(search);
   return formatMatch && searchMatch;
@@ -29,12 +32,18 @@ function renderDirectory() {
   const filter = activeFilter();
   const search = normalizedSearch();
   let shown = 0;
+  let adjacentShown = false;
 
   eventCards.forEach((card) => {
     const visible = matchesCard(card, filter, search);
     card.hidden = !visible;
     if (visible) shown += 1;
+    if (visible && card.dataset.group === "adjacent") adjacentShown = true;
   });
+
+  if (directoryDivider) {
+    directoryDivider.hidden = !adjacentShown;
+  }
 
   if (resultCount) {
     const suffix = shown === 1 ? "listing" : "listings";

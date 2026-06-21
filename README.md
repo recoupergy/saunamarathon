@@ -8,7 +8,7 @@ GitHub: https://github.com/recoupergy/saunamarathon
 
 The site includes:
 
-- Global sauna-marathon directory and taxonomy
+- Global sauna-marathon directory and route-type guide
 - Source-linked event cards
 - Mirrored Otepää event article with a canonical tag pointing to SaunaNews
 - Generated, project-local hero image in `assets/`
